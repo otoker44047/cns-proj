@@ -1,0 +1,28 @@
+services:
+  redirectserver:
+    build:
+      context: ./server-docker
+      dockerfile: Dockerfile
+    image: redirectserver
+    networks:
+      app-net:
+        aliases:
+          - mylocal
+
+  redirectproxy:
+    build:
+      context: ./odoh-server-docker
+      dockerfile: Dockerfile
+    image: redirectproxy
+    depends_on:
+      - redirectserver
+    ports:
+      - "4567:4567"
+      #- "8888:8888"
+    networks:
+      - app-net
+    mem_limit: 100M
+
+networks:
+  app-net:
+    driver: bridge

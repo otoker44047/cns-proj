@@ -1,0 +1,49 @@
+services:
+  server:
+    build:
+      context: ./server-docker
+      dockerfile: Dockerfile
+    image: server
+    networks:
+      app-net:
+        aliases:
+          - mylocal
+
+  proxy:
+    build:
+      context: ./odoh-server-docker
+      dockerfile: Dockerfile
+    image: proxy
+
+    # stdin_open: true
+    # tty: true
+    # command: /bin/sh
+    depends_on:
+      - server
+    ports:
+      - "4567:4567"
+      #- "8888:8888"
+    networks:
+      - app-net
+    mem_limit: 500M
+
+  # caddy:
+  #   image: caddy:2
+  #   restart: unless-stopped
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #     - "443:443/udp"
+  #   volumes:
+  #     - ./Caddyfile:/etc/caddy/Caddyfile
+  #   depends_on:
+  #     - server
+  #   networks:
+  #     app-net:
+  #       aliases:
+  #         - mylocal
+
+
+networks:
+  app-net:
+    driver: bridge

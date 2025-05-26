@@ -1,0 +1,10 @@
+Needed packages:
+golang, mkcert, python, flask
+
+redirect:
+use the redirect compose.yml file
+curl -X POST -k -v -d '{"a":"b"}' "https://localhost:4567/proxy?targethost=mylocal:8081&targetpath=/loopA"
+curl -X POST -k -v "https://mylocal:8081/echo"
+
+mem overflow:
+mv mem-compose.yml docker-compose.yml and run it
