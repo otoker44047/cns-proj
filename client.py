@@ -29,7 +29,7 @@ def drain():
 # --- spawn army of slow readers --------------------------------------------
 # if http1.0, 1 client takse up roughly 10KB RAM usage.
 # -> means impossilbe to mem overflow in http1.0
-for _ in range(1):
+for _ in range(5):
     threading.Thread(target=drain, daemon=True).start()
 
 while True:

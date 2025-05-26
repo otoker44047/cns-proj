@@ -22,6 +22,10 @@ def self_redirect():
 def echo():
     return jsonify(headers=dict(request.headers),
                    body=request.get_data(as_text=True))
+@app.route("/secret", methods=["POST"])
+def secret():
+    return 'cc'
+
 @app.route("/file", methods=["POST"])
 def get_file():
     file_path = 'random.bin'

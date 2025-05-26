@@ -4,7 +4,10 @@ golang, mkcert, python, flask
 redirect:
 use the redirect compose.yml file
 curl -X POST -k -v -d '{"a":"b"}' "https://localhost:4567/proxy?targethost=mylocal:8081&targetpath=/loopA"
-curl -X POST -k -v "https://mylocal:8081/echo"
+
+access private data
+curl -X POST -k -d '{"a":"b"}' "https://localhost:4567/proxy?targethost=mylocal:8081&targetpath=/secret"
+curl -X POST -k "https://mylocal:8081/secret"
 
 mem overflow:
 mv mem-compose.yml docker-compose.yml and run it

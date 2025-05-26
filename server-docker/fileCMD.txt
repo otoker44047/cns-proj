@@ -1,1 +1,1 @@
-dd if=/dev/urandom of=./random.bin bs=1M count=10 status=progress
+dd if=/dev/urandom of=./random.bin bs=1M count=100 status=progress
