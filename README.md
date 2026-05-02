@@ -30,7 +30,7 @@ Redirect Test
 
 Use the redirect Docker Compose file:
 
-mv redirect-compose.yml docker-compose.yml
+mv redirect-compose.yml docker-compose.yml \
 
 docker compose up
 
@@ -51,11 +51,11 @@ Access the private endpoint directly:
 curl -X POST -k "https://mylocal:8081/secret"
 
 
-Memory Overflow Test:
+Memory Overflow Test:\
 
 Use the memory test Docker Compose file:
 
-mv mem-compose.yml docker-compose.yml
+mv mem-compose.yml docker-compose.yml \
 
 docker compose up
 
