@@ -30,7 +30,7 @@ Redirect Test
 
 Use the redirect Docker Compose file:
 
-mv redirect-compose.yml docker-compose.yml 
+mv redirect-compose.yml docker-compose.yml
 
 docker compose up
 
@@ -55,7 +55,7 @@ Memory Overflow Test:\
 
 Use the memory test Docker Compose file:
 
-mv mem-compose.yml docker-compose.yml 
+mv mem-compose.yml docker-compose.yml
 
 docker compose up
 
