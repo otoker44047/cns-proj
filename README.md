@@ -9,6 +9,16 @@ The project idea is based on this issue:
 
 - https://github.com/cloudflarearchive/odoh-server-go/issues/30
 
+
+Basic idea:
+proxy will blindly follow what it has received,
+making a malicious user easily trick a proxy into a redirection loop,
+accessing an internal domain to get secret information, or requesting a huge file that can cause the proxy to run out of memory.
+Redirection loop attack fails since golang will abort connection if
+redirected more than 10 times. Getting secret data and memory
+overflow attacks both succeeded
+
+
 ## Requirements
 
 Install the following packages:
